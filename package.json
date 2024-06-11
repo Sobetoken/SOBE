@@ -1,0 +1,19 @@
+{
+  "name": "sobersloth",
+  "version": "1.0.0",
+  "main": "checkEnv.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.5.0",
+    "web3": "^4.9.0"
+  }
+}
