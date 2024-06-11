@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract SoberSloth is ERC20, Ownable {
     uint256 private constant TOTAL_SUPPLY = 369000000000 * 10**18; // 369 billion tokens
 
-    constructor(address initialOwner) ERC20("Sober Sloth", "SOBE") Ownable(initialOwner) {
+    constructor(address initialOwner) ERC20("Sober Sloth", "SOBE") {
         // Mint 10% of the total supply to the founder (initialOwner)
         uint256 founderShare = TOTAL_SUPPLY / 10;
         _mint(initialOwner, founderShare);
