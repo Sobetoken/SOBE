@@ -1,28 +1,22 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-require('dotenv').config();
+const fs = require('fs');
+const mnemonic = fs.readFileSync(".secret").toString().trim();
+const alchemyApiKey = 'svuks2ICzk-NhMXJevL7fFuDP0fEllqT';
 
 module.exports = {
-  networks: {
-    polygonAmoyTestnet: {
-      provider: () => new HDWalletProvider(
-        process.env.MNEMONIC,
-        `https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`
-      ),
-      network_id: 80002,
-      confirmations: 2,
-      timeoutBlocks: 200,
-      skipDryRun: true
-    },
-  },
-  compilers: {
-    solc: {
-      version: "0.8.20",
-      settings: {
-        optimizer: {
-          enabled: true,
-          runs: 200
+    networks: {
+        amoy: {
+            provider: () => new HDWalletProvider(mnemonic, `https://polygon-amoy.g.alchemy.com/v2/svuks2ICzk-NhMXJevL7fFuDP0fEllqT`),
+            network_id: 80002,       // Match any network id
+            gas: 5500000,
+            confirmations: 2,
+            timeoutBlocks: 200,
+            skipDryRun: true
         }
-      }
+    },
+    compilers: {
+        solc: {
+            version: "0.8.25"
+        }
     }
-  }
 };

@@ -1,7 +1,5 @@
-const SoberSloth = artifacts.require("SoberSloth");
+const SoberSlothToken = artifacts.require("SoberSlothToken");
 
-module.exports = function (deployer, network, accounts) {
-  const initialOwner = accounts[0]; // Use the first account as the owner
-
-  deployer.deploy(SoberSloth, initialOwner);
+module.exports = function (deployer) {
+    deployer.deploy(SoberSlothToken);
 };
