@@ -1,16 +1,17 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const fs = require('fs');
 const mnemonic = fs.readFileSync(".secret").toString().trim();
-const alchemyApiKey = 'svuks2ICzk-NhMXJevL7fFuDP0fEllqT';
+const alchemyApiKey = 'UEzRTXqsgUlASzm4ruIkBnAe3ImLmygo';
 
 module.exports = {
     networks: {
-        amoy: {
-            provider: () => new HDWalletProvider(mnemonic, `https://polygon-amoy.g.alchemy.com/v2/svuks2ICzk-NhMXJevL7fFuDP0fEllqT`),
-            network_id: 80002,       // Match any network id
-            gas: 5500000,
+        polygon: {
+            provider: () => new HDWalletProvider(mnemonic, `https://polygon-mainnet.g.alchemy.com/v2/${alchemyApiKey}`),
+            network_id: 137,       // Polygon mainnet
+            gas: 12000000,          // Gas limit increase to 10 million
+            gasPrice: 50000000000,  // 50 Gwei
             confirmations: 2,
-            timeoutBlocks: 200,
+            timeoutBlocks: 500,
             skipDryRun: true
         }
     },
